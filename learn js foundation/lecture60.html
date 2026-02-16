@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JavaScript DOM Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    button {
+      margin: 5px 0;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 5px;
+    }
+
+    section {
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript DOM Practice</h1>
+
+  <!-- Example 1 -->
+  <section>
+    <h3>Example 1: Change Paragraph Text</h3>
+    <p id="myParagraph">This is the original paragraph.</p>
+    <button id="changeTextButton">Change Text</button>
+  </section>
+
+  <!-- Example 2 -->
+  <section>
+    <h3>Example 2: Highlight First City</h3>
+    <ul id="citiesList">
+      <li>Delhi</li>
+      <li>Mumbai</li>
+      <li>Bangalore</li>
+    </ul>
+    <button id="highlightFirstCity">Highlight First City</button>
+  </section>
+
+  <!-- Example 3 -->
+  <section>
+    <h3>Example 3: Change Coffee Order</h3>
+    <div id="coffeeType">Latte</div>
+    <button id="changeOrder">Change Order</button>
+  </section>
+
+  <!-- Example 4 -->
+  <section>
+    <h3>Example 4: Add Item to Shopping List</h3>
+    <ul id="shoppingList">
+      <li>Bread</li>
+      <li>Milk</li>
+    </ul>
+    <button id="addNewItem">Add Eggs</button>
+  </section>
+
+  <!-- Example 5 -->
+  <section>
+    <h3>Example 5: Remove Last Task</h3>
+    <ul id="taskList">
+      <li>Wake up</li>
+      <li>Study</li>
+      <li>Workout</li>
+    </ul>
+    <button id="removeLastTask">Remove Last Task</button>
+  </section>
+
+  <!-- Example 6 -->
+  <section>
+    <h3>Example 6: Double Click Event</h3>
+    <button id="clickMeButton">Double Click Me</button>
+  </section>
+
+  <!-- Example 7 -->
+  <section>
+    <h3>Example 7: Event Delegation</h3>
+    <ul id="teaList">
+      <li class="teaItem">Green Tea</li>
+      <li class="teaItem">Black Tea</li>
+      <li class="teaItem">Masala Tea</li>
+    </ul>
+  </section>
+
+  <!-- Example 8 -->
+  <section>
+    <h3>Example 8: Form Submit</h3>
+    <form id="feedbackForm">
+      <input type="text" id="feedbackInput" placeholder="Enter feedback"/>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="feedbackDisplay"></p>
+  </section>
+
+  <!-- Example 9 -->
+  <section>
+    <h3>Example 9: DOM Loaded</h3>
+    <p id="domStatus">Loading...</p>
+  </section>
+
+  <!-- Example 10 -->
+  <section>
+    <h3>Example 10: Toggle Highlight</h3>
+    <p id="descriptionText">Click the button to highlight me.</p>
+    <button id="toggleHighlight">Toggle Highlight</button>
+  </section>
+  <script src = "lecture60.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #eef2f3, #d9e7ff);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.header p {
+  color: #555;
+}
+
+/* Setup Section */
+.setup {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.field input {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.setup button {
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  border: none;
+  background: #4f7cff;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.setup button:hover {
+  background: #3a66e0;
+}
+
+/* Itinerary */
+.itinerary {
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Day Card */
+.day-card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.day-card h2 {
+  margin-bottom: 0.8rem;
+  color: #4f7cff;
+}
+
+/* Add Place */
+.add-place {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.place-input,
+.time-select {
+  flex: 1;
+  padding: 0.45rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.add-btn {
+  padding: 0.45rem 0.7rem;
+  border: none;
+  border-radius: 6px;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #218838;
+}
+
+/* Places List */
+.places-list {
+  list-style: none;
+}
+
+.places-list li {
+  background: #f4f6fb;
+  margin-bottom: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.places-list span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.places-list button {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+}

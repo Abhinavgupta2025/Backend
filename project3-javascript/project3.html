@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Cart • Shopping App</title>
+  <link rel="stylesheet" href="project3.css" />
+</head>
+<body>
+
+  <div class="app-container">
+
+    <header class="app-header">
+      <h1>Mini Cart</h1>
+      <p>Simple shopping cart demo</p>
+    </header>
+
+    <div class="content">
+
+      <!-- Products -->
+      <section class="products-section">
+        <h2>Products</h2>
+        <div id="product-list" class="product-list"></div>
+      </section>
+
+      <!-- Cart -->
+      <section class="cart-section">
+        <h2>Your Cart</h2>
+
+
+        <div id="cart-items" class="cart-items">
+            <p id="empty-cart" class="empty-cart">Your cart is empty</p>
+        </div>
+
+        <div id="cart-total" class="cart-total hidden">
+          <span>Total:</span>
+          <strong>$<span id="total-price">0.00</span></strong>
+        </div>
+
+        <button id="checkout-btn" class="checkout-btn">
+          Checkout
+        </button>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- JS goes here -->
+  <script src="project3.js"></script>
+
+</body>
+</html>

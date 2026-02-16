@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trip Itinerary Builder</title>
+  <link rel="stylesheet" href="project4.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>🧳 Trip Itinerary Builder</h1>
+    <p>Plan your journey day by day</p>
+  </header>
+
+  <!-- Trip Setup -->
+  <section class="setup">
+    <div class="field">
+      <label for="city">Destination City</label>
+      <input type="text" id="city" placeholder="e.g. Manali" />
+    </div>
+
+    <div class="field">
+      <label for="days">Number of Days</label>
+      <input type="number" id="days" min="1" max="15" />
+    </div>
+
+    <button id="createTrip">Create Itinerary</button>
+  </section>
+
+  <!-- Itinerary Container -->
+  <main class="itinerary" id="itinerary">
+    <!-- JS will generate day cards here -->
+  </main>
+
+  <!-- Template (DO NOT TOUCH WITH JS DIRECTLY) -->
+  <template id="day-template">
+    <div class="day-card">
+      <h2>Day <span class="day-number"></span></h2>
+
+      <div class="add-place">
+        <input type="text" class="place-input" placeholder="Place name" />
+        <select class="time-select">
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+        </select>
+        <button class="add-btn">Add</button>
+      </div>
+
+      <ul class="places-list">
+        <!-- JS adds places here -->
+      </ul>
+    </div>
+  </template>
+
+</body>
+</html>
