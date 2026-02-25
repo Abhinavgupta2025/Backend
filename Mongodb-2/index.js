@@ -62,6 +62,15 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/Logout",(req,res)=>{
+   try{
+      res.cookie("token",null,{expires:new Date(Date.now())});
+      res.send("Logged out succesffuly ")
+   }
+   catch(err){
+      res.send("err" + err.message);
+   }
+})
 
 // 🔹 GET ALL USERS
 app.get("/info", async (req, res) => {
@@ -91,7 +100,7 @@ app.get("/user", async (req, res) => {
   }
 });
 
-
+app.post()
 // 🔹 DELETE USER
 app.delete("/user/:id", async (req, res) => {
   try {
