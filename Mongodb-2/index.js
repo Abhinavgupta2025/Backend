@@ -6,7 +6,7 @@ const validateUser = require("./utils/Validateuser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-
+const redisClient = require("./redis.js"); 
 app.use(express.json());
 app.use(cookieParser());   // allows reading cookies
 
@@ -62,10 +62,15 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.post("/Logout",(req,res)=>{
+app.post("/Logout",async(req,res)=>{
    try{
-      res.cookie("token",null,{expires:new Date(Date.now())});
-      res.send("Logged out succesffuly ")
+      const {token} = req.cookies;
+      await redisClient.set('token:${token}',"Blocked");
+      const paylod = jwt.decode(token);
+      // await redisClient.expire('token${token}',1800); current time se itne tk valid rhega
+      await redisClient.expireAt('token${token}',payload.exp); // 1 jan 1970 se ab tk expire hoga time jitna bcha hoga
+        
+      res.send("Logged out succesffulY ")
    }
    catch(err){
       res.send("err" + err.message);
@@ -93,14 +98,17 @@ app.get("/user", async (req, res) => {
     const payload = jwt.verify(token, SECRET);
 
     const result = await User.findById(payload.id);
-
+    const isBlocked = await redisClient.exists('token:${token}');
+    if(isBlocked){
+      throw new err("Invalid Token");
+    }
     res.send(result);
   } catch (err) {
     res.send("Error: " + err.message);
   }
 });
 
-app.post()
+
 // 🔹 DELETE USER
 app.delete("/user/:id", async (req, res) => {
   try {
@@ -126,21 +134,23 @@ app.patch("/user", async (req, res) => {
     res.send("Error: " + err.message);
   }
 });
+ 
 
-
-// 🔹 LOGOUT (clear cookie)
-app.post("/logout", (req, res) => {
-  res.clearCookie("token");
-  res.send("Logged out successfully");
-});
-
-
-// 🔹 CONNECT DATABASE
-main()
-  .then(() => {
-    console.log("Connected to DB");
-    app.listen(3000, () => {
-      console.log("Server running on port 3000");
+const init = async()=>{
+    try{
+        // await redisClient.connect();
+        // console.log("connected to mongoDb");
+        // await main();
+        //  console.log("Connected to DB");
+        await Promise.all([redisClient.connect(),main()]);
+        app.listen(3000, () => {
+        console.log("Server running on port 3000");
     });
-  })
-  .catch((err) => console.log(err));
+
+    }
+    catch(err){
+       console.log("error" + err);
+    }
+}
+
+ 

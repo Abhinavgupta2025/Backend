@@ -6,10 +6,11 @@ const redisClient = redis.createClient({
     socket: {
         host: 'redis-12094.c301.ap-south-1-1.ec2.cloud.redislabs.com',
         port: 12094
-    }
+    } 
 });
 const connectReddis = async ()=>{
     await redisClient.connect(); 
     console.log("connected")
 };
 connectReddis();
+module.exports = redisClient; 
