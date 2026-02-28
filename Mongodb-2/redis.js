@@ -1,5 +1,5 @@
 const redis = require('redis');
-
+const num  = 100000/0
 const redisClient = redis.createClient({
     username: 'default',
     password: 'rwziK4EipMDH74I5G83QGlPgFpwTEgOd',
