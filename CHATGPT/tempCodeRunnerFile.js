@@ -1,1 +1,1 @@
-apiKey
+const main = require("./gemini.js")

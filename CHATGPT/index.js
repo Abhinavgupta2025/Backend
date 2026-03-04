@@ -1,13 +1,28 @@
-const { GoogleGenAI }  =  require ("@google/genai");
+const express = require("express");
+const main = require("./gemini");
 
-const ai = new GoogleGenAI({apiKey:"AIzaSyCTWcNd86ynd7iwLdpje1hK9aC1G_Mx1_E"});
+const app = express();
+app.use(express.json());
 
-async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
-    contents: "Who is ROhit shrma",
-  });
-  console.log(response.text);
-}
+app.post("/chat", async (req, res) => {
+  try {
+    const { msg } = req.body;
 
- main();
+    if (!msg) {
+      return res.status(400).json({ error: "Message required" });
+    }
+
+    const answer = await main(msg);
+
+    res.send(answer);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+app.listen(3000, () => {
+  console.log("🚀 Listening at port 4000");
+});
+
